@@ -1,3 +1,7 @@
 #main-height{
     min-height: 400px;
 }
+.visa-text{
+    max-width: 100px;
+    height: auto;
+}
