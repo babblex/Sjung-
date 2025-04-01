@@ -1,6 +1,7 @@
 .main-div{
     margin-top: 10px;
     background-image: url('background.jpg');
+    background-size: cover;
 }
 #main-height{
     min-height: 600px;
