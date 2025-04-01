@@ -1,5 +1,6 @@
 .main-div{
     margin-top: 10px;
+    margin-bottom: 10px;
     background-image: url('background.jpg');
     background-size: cover;
 }
