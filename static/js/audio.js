@@ -33,3 +33,12 @@ audio.addEventListener("ended", function () {
     pauseButton.style.display = "none";
 });
 });
+// Sidomeny - visa/dölj
+document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("menu-toggle");
+    const sideMenu = document.getElementById("side-menu");
+
+    menuButton.addEventListener("click", function () {
+        sideMenu.classList.toggle("open");
+    });
+});

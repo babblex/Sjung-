@@ -12,6 +12,7 @@
     <div class = "container-md main-div border border-dark">
         <header class = "row">
             <div class = "col-12 text-start">
+              <button id="menu-toggle" class="menu-button">☰</button>
               <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">
             </div>
             <div class = "col-6 text-start">
@@ -68,6 +69,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
     </div>
+    <div id="side-menu" class="side-menu">
+      <!-- Innehåll i sidomenyn kan läggas här senare -->
+      <h2>Sidomeny</h2>
+      <p>Exempelinnehåll</p>
+    </div>    
   </body>
 </html>
 
