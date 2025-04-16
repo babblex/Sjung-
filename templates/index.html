@@ -61,10 +61,13 @@
               <img src="static/images/play-btn.png" alt="play/pause" class="show-text">
               <img src="static/images/fast_forward_btn.png" alt="fast-forward" class="symbols-header">
               <img src="static/images/repeat.png" alt="repeat"  class="symbols-header">
+              <button id="play-button">Play</button>
+              <button id="pause-button">Pause</button>
             </div>
         </footer>
     
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
     </div>
   </body>
 </html>
