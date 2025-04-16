@@ -1,7 +1,7 @@
 .main-div{
     margin-top: 10px;
     margin-bottom: 10px;
-    background-image: url('background-picture.png');
+    background-image: url('static/images/background-picture.png');
     background-size: cover;
 }
 #main-height{
