@@ -8,11 +8,11 @@ def index():
 
 @app.errorhandler(404)
 def error_page_not_found(error):
-    return "Sorry, the page you are looking for does not exist.", error
+    return "Sorry, the page you are looking for does not exist.", 404
 
 @app.errorhandler(500)
 def internal_error(error):
-    return "An internal python error occurred. Please contact the tech team!", error
+    return "An internal python error occurred. Please contact the tech team!", 500
 
 if __name__ == "__main__":
     app.run()
