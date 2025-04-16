@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const playButton = document.getElementById("play-button");
     const pauseButton = document.getElementById("pause-button");
 
- // Initialt, se till att endast play-knappen är synlig
- playButton.style.display = "inline";
- pauseButton.style.display = "none";
+// Initialt, se till att endast play-knappen är synlig
+playButton.style.display = "inline";
+pauseButton.style.display = "none";
 
- 
+
 // När play-knappen klickas
 playButton.addEventListener("click", function () {
     audio.play();
