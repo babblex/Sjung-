@@ -30,4 +30,4 @@ def internal_error(error):
     return "An internal python error occurred. Please contact the tech team!", 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="127.0.0.1", port=8080, debug=True)
