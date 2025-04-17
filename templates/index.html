@@ -8,6 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+    <aside id="side-menu" class="side-menu">
+      <button id="menu-toggle" class="menu-button">
+        <img src="{{ url_for('static', filename='images/side_meny_btn.png') }}" alt="side-meny-button" class="symbols-header">
+      </button>
+      <h2>Sidomeny</h2>
+      <p>Exempelinnehåll</p>
+      <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">
+    </aside>
     <!--Main div-->
     <div class = "container-fluid main-div border border-dark">
         <header class = "row">
@@ -25,9 +33,6 @@
               <img src="{{ url_for('static', filename='images/symbols_right.png') }}" alt="symbols-right" class="symbols-header">
             </div>
         </header>
-        <aside>
-          <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">
-        </aside>
         <!--Tomma rutan-->
         <main class = "row d-flex align-items-end" id="main-height">
             <div class = "col-10">
@@ -70,14 +75,8 @@
               <img src="{{ url_for('static', filename='images/repeat.png') }}" alt="repeat" class="symbols-header">
             </div>
         </footer>
-    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
-    </div>
-    <div id="side-menu" class="side-menu">
-      <!-- Innehåll i sidomenyn kan läggas här senare -->
-      <h2>Sidomeny</h2>
-      <p>Exempelinnehåll</p>
     </div>    
   </body>
 </html>
