@@ -12,7 +12,9 @@
     <div class = "container-fluid main-div border border-dark">
         <header class = "row">
             <div class = "col-12 text-start">
-              <button id="menu-toggle" class="menu-button">☰</button>
+              <button id="menu-toggle" class="menu-button">
+                <img src="{{ url_for('static', filename='images/side_meny_btn.png') }}" alt="side-meny-button" class="symbols-header">
+              </button>
               <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">
             </div>
             <div class = "col-6 text-start">
@@ -23,6 +25,9 @@
               <img src="{{ url_for('static', filename='images/symbols_right.png') }}" alt="symbols-right" class="symbols-header">
             </div>
         </header>
+        <aside>
+          <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">
+        </aside>
         <!--Tomma rutan-->
         <main class = "row d-flex align-items-end" id="main-height">
             <div class = "col-10">
