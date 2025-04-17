@@ -1,6 +1,9 @@
 .main-div{
     background-image: url('/static/images/background-picture.png');
     background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    transition: transform 0.3s ease;
 }
 #main-height{
     min-height: 600px;
@@ -41,6 +44,10 @@
   /* När menyn är synlig */
   .side-menu.open {
     right: 0;
+  }
+
+  .side-menu.open + .main-div{
+    transform: translateX(-280px);
   }
 
 

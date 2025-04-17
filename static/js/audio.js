@@ -33,12 +33,21 @@ audio.addEventListener("ended", function () {
     pauseButton.style.display = "none";
 });
 });
-// Sidomeny - visa/dölj
-document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.getElementById("menu-toggle");
-    const sideMenu = document.getElementById("side-menu");
 
-    menuButton.addEventListener("click", function () {
-        sideMenu.classList.toggle("open");
+// Sidomeny - öppna/stäng
+document.addEventListener("DOMContentLoaded", function () {
+    const openMenuButton  = document.getElementById("menu-toggle");
+    const closeMenuButton = document.getElementById("close-menu");
+    const sideMenu        = document.getElementById("side-menu");
+
+    // Öppna menyn
+    openMenuButton.addEventListener("click", function () {
+        sideMenu.classList.add("open");
+    });
+
+    // Stäng menyn
+    closeMenuButton.addEventListener("click", function () {
+        sideMenu.classList.remove("open");
     });
 });
+
