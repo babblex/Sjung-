@@ -34,20 +34,14 @@ audio.addEventListener("ended", function () {
 });
 });
 
-// Sidomeny - öppna/stäng
+// Sidomeny - öppna/stäng med samma knapp
 document.addEventListener("DOMContentLoaded", function () {
-    const openMenuButton  = document.getElementById("menu-toggle");
-    const closeMenuButton = document.getElementById("close-menu");
-    const sideMenu        = document.getElementById("side-menu");
+    const menuButton = document.getElementById("menu-toggle");
+    const sideMenu   = document.getElementById("side-menu");
 
-    // Öppna menyn
-    openMenuButton.addEventListener("click", function () {
-        sideMenu.classList.add("open");
-    });
-
-    // Stäng menyn
-    closeMenuButton.addEventListener("click", function () {
-        sideMenu.classList.remove("open");
+    menuButton.addEventListener("click", function () {
+        sideMenu.classList.toggle("open");
     });
 });
+
 

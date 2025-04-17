@@ -1,10 +1,20 @@
-.main-div{
-    background-image: url('/static/images/background-picture.png');
-    background-size: cover;
-    background-attachment: fixed;
-    overflow-x: hidden;
-    transition: transform 0.3s ease;
+.main-div {
+  background-image: url('/static/images/background-picture.png');
+  background-size: cover;
+  background-attachment: fixed;   /* Bakgrunden ligger kvar */
+  overflow-x: hidden;            /* Hindrar horisontell scroll */
+  transition: width 0.3s ease-in-out, margin-right 0.3s ease-in-out;
+  width: 100%;                   /* Utgångsvärde */
+  margin-right: 0;               /* Utgångsvärde */
 }
+
+/* När menyn är öppen: gör .main-div smalare och ge plats åt sidomenyn på högerkanten */
+.side-menu.open + .main-div {
+  width: calc(100% - 280px);     /* Krymp bredden med sidomenyns bredd */
+  margin-right: 280px;            /* Hindra innehåll under menyn */
+}
+
+
 #main-height{
     min-height: 600px;
 }
@@ -46,9 +56,6 @@
     right: 0;
   }
 
-  .side-menu.open + .main-div{
-    transform: translateX(-280px);
-  }
 
 
   
