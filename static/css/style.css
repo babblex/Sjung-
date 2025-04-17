@@ -5,7 +5,7 @@
 #main-height{
     min-height: 600px;
 }
-.visa-text{
+.show-text{
     max-height: 50px;
 }
 .symbols-header{
@@ -42,4 +42,6 @@
   .side-menu.open {
     right: 0;
   }
+
+
   
