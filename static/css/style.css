@@ -63,6 +63,8 @@
     right: 0;
   }
 
-
+  .side-menu.open + .main-div #menu-toggle {
+    display: none;
+  }
 
   
