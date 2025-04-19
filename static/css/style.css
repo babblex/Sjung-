@@ -1,18 +1,24 @@
+/* 1) Återställ Bootstrap‑centeringen: inga auto‑marginaler */
 .main-div {
   background-image: url('/static/images/background-picture.png');
   background-size: cover;
-  background-attachment: fixed;   /* Bakgrunden ligger kvar */
-  overflow-x: hidden;            /* Hindrar horisontell scroll */
-  transition: width 0.3s ease-in-out, margin-right 0.3s ease-in-out;
-  width: 100%;                   /* Utgångsvärde */
-  margin-right: 0;               /* Utgångsvärde */
+  background-attachment: fixed;
+
+  box-sizing: border-box;            /* inkludera border i bredd */
+  margin-left: 0 !important;         /* OVERSKRIV auto‑marginal */
+  margin-right: 0;                   /* utgångsläge */
+  
+  width: 100%;
+  transition: width 0.3s ease, margin-right 0.3s ease;
 }
 
-/* När menyn är öppen: gör .main-div smalare och ge plats åt sidomenyn på högerkanten */
+/* 2) När sidomenyn är öppen: krymp från höger ENDAST */
 .side-menu.open + .main-div {
-  width: calc(100% - 280px);     /* Krymp bredden med sidomenyns bredd */
-  margin-right: 280px;            /* Hindra innehåll under menyn */
+  width: calc(100% - 280px);
+  margin-left: 0;                    /* för säkerhets skull */
+  margin-right: 280px;               /* reservera utrymme åt menyn */
 }
+
 
 
 #main-height{
