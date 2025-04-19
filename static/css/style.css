@@ -51,11 +51,14 @@
     right: -300px; /* Skjuts utanför skärmen */
     width: 280px;
     height: 100%;
+    backdrop-filter: none; /* eller blur(8px) om du vill ha glassig effekt */
     background-color: #f5f5f5;
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
   }
   
   /* När menyn är synlig */
@@ -67,4 +70,13 @@
     display: none;
   }
 
+  body {
+    background-image: url('/static/images/background-picture.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+  }
+  
   
