@@ -8,6 +8,7 @@
   margin-left: 0 !important;         /* OVERSKRIV auto‑marginal */
   margin-right: 0;                   /* utgångsläge */
   
+  min-height: 100vh;
   width: 100%;
   transition: width 0.3s ease, margin-right 0.3s ease;
 }
