@@ -79,4 +79,154 @@
     padding: 0;
   }
   
-  
+  /* ---- Chips: lista och list‑objekt ---- */
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list__item {
+  margin-bottom: 1rem;   /* avstånd mellan chips */
+}
+
+/* ---- Själva chip‑knappen ---- */
+.chip {
+  display: flex;               /* ikon + text i rad */
+  align-items: center;
+  gap: .75rem;                 /* avstånd ikon–text */
+
+  width: 100%;                 /* fyll hela list‑bredden */
+  padding: .75rem 1rem;
+
+  background: #d9d9d9;         /* ljusgrå som i mock‑up */
+  border: none;
+  border-radius: 1.5rem;       /* gör hörnen rundade */
+
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: left;            /* texten vänsterställd */
+
+  cursor: pointer;
+}
+
+.chip__icon  { height: 1.5rem; }
+.chip__label { flex: 1; }   
+
+/* === Tempo‑panel ================================================== */
+
+/* Grundpanel: återanvänds även för volym senare */
+.panel {
+  background: #d9d9d9;        /* ljusgrå bakgrund */
+  border-radius: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Huvud­rad högst upp i panelen */
+.panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.panel__icon  { height: 1.5rem; }
+.panel__title { margin: 0; font-size: 1.5rem; }
+
+/* Liten “Återställ”‑knapp uppe till höger */
+.panel__reset {
+  background: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  padding: .25rem .75rem;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+/* Själva metronomen‑bilden */
+.panel__metronome {
+  display: block;
+  margin: 1rem auto;
+  width: 40%;                 /* prova dig fram om du vill ha större */
+}
+
+/* Visar aktuellt BPM‑tal */
+.panel__value {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: .75rem 0;
+}
+
+/* === Slider (tempo & andra reglar) ================================ */
+
+.slider {
+  width: 100%;
+  appearance: none;           /* ta bort browser­standard */
+  height: 4px;
+  background: #808080;
+  border-radius: 2px;
+  margin-top: .75rem;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #434343;        /* mörkgrå “knopp” */
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {   /* Firefox */
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #434343;
+  border: none;
+}
+
+/* Små – / + etiketter under reglaget */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  margin-top: .25rem;
+}
+
+.panel--volume {
+  /* exempel: background: #e0e0e0; */
+}
+
+/* === Spårcontainer (Master / Sång / Instrument) ------------------ */
+.track {
+  position: relative;          /* så vi kan absolut‑positionera mute‑knappen */
+  margin-top: 1.25rem;
+}
+
+/* Etiketten ovanför varje reglage */
+.track__label {
+  display: block;
+  margin-bottom: .25rem;
+  font-weight: 600;
+}
+
+/* Mute‑knappen till höger om varje reglage */
+.mute-btn {
+  position: absolute;
+  top: 50%;
+  right: -0.2rem;
+  transform: translateY(-95%);
+
+  background: #b4b4b4;
+  border: none;
+  border-radius: .9rem;
+  padding: .25rem .6rem;
+  cursor: pointer;
+}
+
+.mute-btn img { height: 1.1rem; }
+
+/* Gör slidern lite kortare om du tycker om luft */
+.slider--track { width: 100%; }
