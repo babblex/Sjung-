@@ -9,7 +9,7 @@ def index():
     Returns:
         template: index.html
     """
-    return render_template ("index.html")
+    return render_template("index.html")
 
 @app.errorhandler(404)
 def error_page_not_found(error):
