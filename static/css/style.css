@@ -1,85 +1,79 @@
-/* 1) Återställ Bootstrap‑centeringen: inga auto‑marginaler */
+/* 1) Reset Bootstrap‑centering: no auto‑marginals */
 .main-div {
   background-image: url('/static/images/background-picture.png');
   background-size: cover;
   background-attachment: fixed;
 
-  box-sizing: border-box;            /* inkludera border i bredd */
-  margin-left: 0 !important;         /* OVERSKRIV auto‑marginal */
-  margin-right: 0;                   /* utgångsläge */
+  box-sizing: border-box;            /* Include border in width */
+  margin-left: 0 !important;         /* OVERWRITE auto‑marginal */
+  margin-right: 0;                   /* Default */
   
   min-height: 100vh;
   width: 100%;
   transition: width 0.3s ease, margin-right 0.3s ease;
 }
 
-/* 2) När sidomenyn är öppen: krymp från höger ENDAST */
 .side-menu.open + .main-div {
   width: calc(100% - 280px);
-  margin-left: 0;                    /* för säkerhets skull */
-  margin-right: 280px;               /* reservera utrymme åt menyn */
+  margin-left: 0;                   
+  margin-right: 280px;              
 }
-
-
 
 #main-height{
-    min-height: 600px;
+  min-height: 600px;
 }
 .show-text{
-    max-height: 50px;
+  max-height: 50px;
 }
 .symbols-header{
-    max-height: 35px;
+  max-height: 35px;
 }
 
-/* Knapp för att öppna menyn */
 .menu-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1001;
-    background: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
   
-  /* Själva sidomenyn */
-  .side-menu {
-    position: fixed;
-    top: 0;
-    right: -300px; /* Skjuts utanför skärmen */
-    width: 280px;
-    height: 100%;
-    backdrop-filter: none; /* eller blur(8px) om du vill ha glassig effekt */
-    background-color: #f5f5f5;
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    transition: right 0.3s ease-in-out;
-    z-index: 1000;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-  }
-  
-  /* När menyn är synlig */
-  .side-menu.open {
-    right: 0;
-  }
+  /* Sidemenu*/
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100%;
+  backdrop-filter: none;
+  background-color: #f5f5f5;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
 
-  .side-menu.open + .main-div #menu-toggle {
-    display: none;
-  }
+.side-menu.open {
+  right: 0;
+}
 
-  body {
-    background-image: url('/static/images/background-picture.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* ---- Chips: lista och list‑objekt ---- */
+.side-menu.open + .main-div #menu-toggle {
+  display: none;
+}
+
+body {
+  background-image: url('/static/images/background-picture.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
 .menu-list {
   list-style: none;
   margin: 0;
@@ -87,43 +81,43 @@
 }
 
 .menu-list__item {
-  margin-bottom: 1rem;   /* avstånd mellan chips */
+  margin-bottom: 1rem; 
 }
 
-/* ---- Själva chip‑knappen ---- */
 .chip {
-  display: flex;               /* ikon + text i rad */
+  display: flex;              
   align-items: center;
-  gap: .75rem;                 /* avstånd ikon–text */
+  gap: .75rem;                
 
-  width: 100%;                 /* fyll hela list‑bredden */
+  width: 100%;                
   padding: .75rem 1rem;
 
-  background: #d9d9d9;         /* ljusgrå som i mock‑up */
+  background: #d9d9d9;      
   border: none;
-  border-radius: 1.5rem;       /* gör hörnen rundade */
+  border-radius: 1.5rem;     
 
   font-size: 1.25rem;
   font-weight: 600;
-  text-align: left;            /* texten vänsterställd */
+  text-align: left;         
 
   cursor: pointer;
 }
 
-.chip__icon  { height: 1.5rem; }
-.chip__label { flex: 1; }   
+.chip__icon  { 
+  height: 1.5rem; 
+}
 
-/* === Tempo‑panel ================================================== */
+.chip__label { 
+  flex: 1; 
+}   
 
-/* Grundpanel: återanvänds även för volym senare */
 .panel {
-  background: #d9d9d9;        /* ljusgrå bakgrund */
+  background: #d9d9d9;       
   border-radius: 1.5rem;
   padding: 1rem;
   margin-bottom: 1.5rem;
 }
 
-/* Huvud­rad högst upp i panelen */
 .panel__header {
   display: flex;
   align-items: center;
@@ -131,10 +125,14 @@
   margin-bottom: .5rem;
 }
 
-.panel__icon  { height: 1.5rem; }
-.panel__title { margin: 0; font-size: 1.5rem; }
+.panel__icon  { 
+  height: 1.5rem; 
+}
+.panel__title { 
+  margin: 0; 
+  font-size: 1.5rem; 
+}
 
-/* Liten “Återställ”‑knapp uppe till höger */
 .panel__reset {
   background: #ffffff;
   border: none;
@@ -144,14 +142,12 @@
   cursor: pointer;
 }
 
-/* Själva metronomen‑bilden */
 .panel__metronome {
   display: block;
   margin: 1rem auto;
-  width: 40%;                 /* prova dig fram om du vill ha större */
+  width: 40%;              
 }
 
-/* Visar aktuellt BPM‑tal */
 .panel__value {
   text-align: center;
   font-size: 1.4rem;
@@ -159,11 +155,9 @@
   margin: .75rem 0;
 }
 
-/* === Slider (tempo & andra reglar) ================================ */
-
 .slider {
   width: 100%;
-  appearance: none;           /* ta bort browser­standard */
+  appearance: none;         
   height: 4px;
   background: #808080;
   border-radius: 2px;
@@ -175,11 +169,11 @@
   height: 24px;
   width: 24px;
   border-radius: 50%;
-  background: #434343;        /* mörkgrå “knopp” */
+  background: #434343;    
   cursor: pointer;
 }
 
-.slider::-moz-range-thumb {   /* Firefox */
+.slider::-moz-range-thumb { 
   height: 24px;
   width: 24px;
   border-radius: 50%;
@@ -187,7 +181,7 @@
   border: none;
 }
 
-/* Små – / + etiketter under reglaget */
+
 .slider-labels {
   display: flex;
   justify-content: space-between;
@@ -195,24 +189,18 @@
   margin-top: .25rem;
 }
 
-/*.panel--volume {
-  /* exempel: background: #e0e0e0; */
-/*}
-
-/* === Spårcontainer (Master / Sång / Instrument) ------------------ */
 .track {
-  position: relative;          /* så vi kan absolut‑positionera mute‑knappen */
+  position: relative;          
   margin-top: 1.25rem;
 }
 
-/* Etiketten ovanför varje reglage */
+
 .track__label {
   display: block;
   margin-bottom: .25rem;
   font-weight: 600;
 }
 
-/* Mute‑knappen till höger om varje reglage */
 .mute-btn {
   position: absolute;
   top: 50%;
@@ -226,7 +214,10 @@
   cursor: pointer;
 }
 
-.mute-btn img { height: 1.1rem; }
+.mute-btn img { 
+  height: 1.1rem; 
+}
 
-/* Gör slidern lite kortare om du tycker om luft */
-.slider--track { width: 100%; }
+.slider--track { 
+  width: 100%; 
+}
