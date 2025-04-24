@@ -2,10 +2,9 @@
 import { initAudioEngine } from "./audio-engine.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* === A.  starta ljudmotorn === */
-  const audioAPI = initAudioEngine();   // { play, pause, ctx }
 
-  /* === B.  play/pause‑knappar === */
+  const audioAPI = initAudioEngine();   
+
   const playBtn  = document.getElementById("play-button");
   const pauseBtn = document.getElementById("pause-button");
 
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseBtn.style.display = "none";
   });
 
-  /* === C.  sidomeny === */
   const openBtn  = document.getElementById("menu-toggle");
   const closeBtn = document.getElementById("close-menu");
   const sideMenu = document.getElementById("side-menu");
