@@ -1,5 +1,6 @@
 // ui-handlers.js
 import { initAudioEngine } from "./audio-engine.js";
+import { songs } from "./songs.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -38,4 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
     tempoDisplay.textContent = `${DEFAULT_TEMPO} BPM`;
 
   });
+
+  let current = 0;                            
+
+  function nextSong() {
+    current = (current + 1) % songs.length;    
+    audioAPI.loadSong(songs[current]);         
+    audioAPI.play();                           
+    playBtn .style.display = "none";           
+    pauseBtn.style.display = "inline";
+  }
+
+  
+  document
+    .querySelector('img[alt="shuffle"]')       
+    .addEventListener("click", nextSong);
 });
