@@ -26,4 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openBtn .addEventListener("click", () => sideMenu.classList.add("open"));
   closeBtn.addEventListener("click", () => sideMenu.classList.remove("open"));
+
+  const resetTempoBtn = document.querySelector('[data-reset="tempo"]');
+  const tempoSlider   = document.getElementById("tempo-slider");
+  const tempoDisplay  = document.getElementById("tempo-display");
+
+  const DEFAULT_TEMPO = parseInt(tempoSlider.getAttribute("value"), 10); // 130
+
+  resetTempoBtn.addEventListener("click", () => {
+    tempoSlider.value  = DEFAULT_TEMPO;
+    tempoDisplay.textContent = `${DEFAULT_TEMPO} BPM`;
+
+  });
 });

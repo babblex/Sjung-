@@ -221,3 +221,8 @@ body {
 .slider--track { 
   width: 100%; 
 }
+
+.mute-btn.muted {
+  background: #808080;       
+  box-shadow: inset 0 0 4px #00000033;
+}
