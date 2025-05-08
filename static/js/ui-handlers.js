@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseBtn.style.display = "none";
   });
 
+
+
   const openBtn  = document.getElementById("menu-toggle");
   const closeBtn = document.getElementById("close-menu");
   const sideMenu = document.getElementById("side-menu");
@@ -54,4 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector('img[alt="shuffle"]')       
     .addEventListener("click", nextSong);
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.querySelector('#toggleBtn'); 
+  const lyricsBox = document.getElementById('song-lyrics'); 
+
+  const seeLyricsSrc = toggleBtn.getAttribute('data-see-lyrics');  
+  const hideLyricsSrc = toggleBtn.getAttribute('data-hide-lyrics'); 
+
+  lyricsBox.style.display = 'block'; 
+  toggleBtn.src = seeLyricsSrc; 
+
+
+  toggleBtn.addEventListener('click', function () {
+
+    lyricsBox.style.display = (lyricsBox.style.display === 'none') ? 'block' : 'none';
+    toggleBtn.src = (lyricsBox.style.display === 'none') ? hideLyricsSrc : seeLyricsSrc;
+  });
 });

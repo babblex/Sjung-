@@ -17,9 +17,8 @@
       <button id="close-menu" class="menu-button">
         <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="side-meny-button" class="symbols-header">
       </button>
-      <h2>Sidomeny</h2>
 
-      <nav aria-label="Sidomeny">
+      <nav aria-label="Sidomeny" class="side-menu-list-info-tips-lang">
         <ul class="menu-list">
           <li class="menu-list__item">
             <button class="chip" data-action="info">
@@ -116,7 +115,9 @@
             </div>
             <!--Text-box-eye-->
             <div class="col-2 text-end">
-              <img src="{{ url_for('static', filename='images/see_lyrics_btn.png') }}" alt="song-lyrics" class="img-fluid show-text">
+              <img src="{{ url_for('static', filename='images/see_lyrics_btn.png') }}" alt="song-lyrics" class="img-fluid show-text" id="toggleBtn"
+                data-see-lyrics="{{ url_for('static', filename='images/see_lyrics_btn.png') }}"
+                data-hide-lyrics="{{ url_for('static', filename='images/hide_lyrics_btn.png') }}">
             </div>
         </main>
         <footer class = "row">
@@ -126,8 +127,10 @@
             <div class ="col-12 text-center">
               <img src="{{ url_for('static', filename='images/shuffle_btn.png') }}" alt="shuffle" class="symbols-header">
               <img src="{{ url_for('static', filename='images/rewind_btn.png') }}" alt="rewind" class="symbols-header">
-              <img src="{{ url_for('static', filename='images/play_btn.png') }}" alt="play" id="play-button" class="symbols-header" class="show-text">
-              <img src="{{ url_for('static', filename='images/pause_btn.png') }}" alt="pause" id="pause-button" class="symbols-header" class="show-text">
+              <!--<img src="{{ url_for('static', filename='images/play_btn.png') }}" alt="play" id="play-button" class="symbols-header" class="show-text">
+              <img src="{{ url_for('static', filename='images/pause_btn.png') }}" alt="pause" id="pause-button" class="symbols-header" class="show-text"> -->
+              <img src="{{ url_for('static', filename='images/play_btn.png') }}" alt="play" id="play-button" class="symbols-header" class="show-text" data-play="{{ url_for('static', filename='images/play_btn.png') }}" data-pause="{{ url_for('static', filename='images/pause_btn.png') }}">
+              <img src="{{ url_for('static', filename='images/pause_btn.png') }}" alt="pause" id="pause-button" class="symbols-header" class="show-text" data-play="{{ url_for('static', filename='images/play_btn.png') }}" data-pause="{{ url_for('static', filename='images/pause_btn.png') }}">
               <img src="{{ url_for('static', filename='images/fast_forward_btn.png') }}" alt="fast-forward" class="symbols-header">
               <img src="{{ url_for('static', filename='images/repeat.png') }}" alt="repeat" class="symbols-header">
             </div>
