@@ -21,8 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseBtn.style.display = "none";
   });
 
-
-
   const openBtn  = document.getElementById("menu-toggle");
   const closeBtn = document.getElementById("close-menu");
   const sideMenu = document.getElementById("side-menu");
@@ -34,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tempoSlider   = document.getElementById("tempo-slider");
   const tempoDisplay  = document.getElementById("tempo-display");
 
-  const DEFAULT_TEMPO = parseInt(tempoSlider.getAttribute("value"), 10); // 130
+  const DEFAULT_TEMPO = parseInt(tempoSlider.getAttribute("value"), 10);
 
   resetTempoBtn.addEventListener("click", () => {
     tempoSlider.value  = DEFAULT_TEMPO;
@@ -52,15 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseBtn.style.display = "inline";
   }
 
-  
   document
     .querySelector('img[alt="shuffle"]')       
     .addEventListener("click", nextSong);
 });
 
-
 document.addEventListener('DOMContentLoaded', function () {
-  const toggleBtn = document.querySelector('#toggleBtn'); 
+  const toggleBtn = document.querySelector('#toggle-btn'); 
   const lyricsBox = document.getElementById('song-lyrics'); 
 
   const seeLyricsSrc = toggleBtn.getAttribute('data-see-lyrics');  
@@ -68,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   lyricsBox.style.display = 'block'; 
   toggleBtn.src = seeLyricsSrc; 
-
 
   toggleBtn.addEventListener('click', function () {
 
