@@ -22,9 +22,11 @@
 #main-height{
   min-height: 600px;
 }
+
 .show-text{
   max-height: 50px;
 }
+
 .symbols-header{
   max-height: 35px;
 }
@@ -39,7 +41,7 @@
   font-size: 24px;
   cursor: pointer;
 }
-  
+
   /* Sidemenu*/
 .side-menu {
   position: fixed;
@@ -135,6 +137,7 @@ body {
 .panel__icon  { 
   height: 1.5rem; 
 }
+
 .panel__title { 
   margin-right: 8px; 
   font-size: 1.5rem; 
@@ -189,7 +192,6 @@ body {
   border: none;
 }
 
-
 .slider-labels {
   display: flex;
   justify-content: space-between;
@@ -201,7 +203,6 @@ body {
   position: relative;          
   margin-top: 1.25rem;
 }
-
 
 .track__label {
   display: block;
