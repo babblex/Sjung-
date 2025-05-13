@@ -11,6 +11,6 @@ export const songs = [
       audioVocals: "/static/audio/Det var så roligt Ljudfiler/Det var så roligt Sopran.mp3",
       audioInstr : "/static/audio/Det var så roligt Ljudfiler/Det var så roligt No vocals.mp3"
     },
-    // Lägg till fler objekt här
+    // Add more songs here
   ];
   
