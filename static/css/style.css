@@ -256,5 +256,5 @@ html, body {
 }
 
 #pause-button {
-  display: none;  /* Pausknappen är initialt dold */
+  display: none; 
 }
