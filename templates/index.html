@@ -20,37 +20,37 @@
 
       <nav aria-label="Sidomeny" class="side-menu-list-info-tips-lang">
         <ul class="menu-list">
-          <li class="menu-list__item">
+          <li class="menu-list-item">
             <button class="chip" data-action="info">
-              <img src="{{ url_for('static', filename='images/Info_Icon.png') }}" class="chip__icon" alt="Info Icon">
-              <span class="chip__label">Låtinfo</span>
+              <img src="{{ url_for('static', filename='images/Info_Icon.png') }}" class="chip-icon" alt="Info Icon">
+              <span class="chip-label">Låtinfo</span>
             </button>
           </li>
-          <li class="menu-list__item">
+          <li class="menu-list-item">
             <button class="chip" data-action="tips">
-              <img src="{{ url_for('static', filename='images/light_bulb.png') }}" class="chip__icon" alt="tips">
-              <span class="chip__label">Tips</span>
+              <img src="{{ url_for('static', filename='images/light_bulb.png') }}" class="chip-icon" alt="tips">
+              <span class="chip-label">Tips</span>
             </button>
           </li>
-          <li class="menu-list__item">
+          <li class="menu-list-item">
             <button class="chip" data-action="lang">
-              <img src="{{ url_for('static', filename='images/flag_se.png') }}" class="chip__icon" alt="change_language">
-              <span class="chip__label">Ändra språk</span>
+              <img src="{{ url_for('static', filename='images/flag_se.png') }}" class="chip-icon" alt="change_language">
+              <span class="chip-label">Ändra språk</span>
             </button>
           </li>
         </ul>
       </nav>
 
       <section class="panel panel--tempo">
-        <header class="panel__header">
-          <img src="{{ url_for('static', filename='images/icon_tempo.png') }}" class="panel__icon" alt="">
-          <h3 class="panel__title">Tempo</h3>
-          <button class="panel__reset" data-reset="tempo">Återställ</button>
+        <header class="panel-header">
+          <img src="{{ url_for('static', filename='images/icon_tempo.png') }}" class="panel-icon" alt="">
+          <h3 class="panel-title">Tempo</h3>
+          <button class="panel-reset" data-reset="tempo">Återställ</button>
         </header>
       
         <div class="panel__body">
-          <img src="{{ url_for('static', filename='images/icon_metronome.png') }}" alt="" class="panel__metronome">
-          <p id="tempo-display" class="panel__value">130 BPM</p>
+          <img src="{{ url_for('static', filename='images/icon_metronome.png') }}" alt="" class="panel-metronome">
+          <p id="tempo-display" class="panel-value">130 BPM</p>
       
           <input type="range" id="tempo-slider"
                  class="slider slider--tempo"
@@ -63,17 +63,17 @@
       </section>
             <!-- Volume controll‑panel -->
       <section class="panel panel--volume">
-        <header class="panel__header">
-          <img src="{{ url_for('static', filename='images/volume_icon.png') }}" class="panel__icon" alt="volume">
-          <h3 class="panel__title">Volym</h3>
-          <button class="panel__reset" data-reset="volume">Återställ</button>
+        <header class="panel-header">
+          <img src="{{ url_for('static', filename='images/volume_icon.png') }}" class="panel-icon" alt="volume">
+          <h3 class="panel-title">Volym</h3>
+          <button class="panel-reset" data-reset="volume">Återställ</button>
         </header>
 
         <div class="panel__body">
           <!-- Master -->
           <div class="track">
-            <label for="vol-master" class="track__label">Volym</label>
-            <input type="range" id="vol-master" class="slider slider--track" min="0" max="1" step="0.01" value="0.5">
+            <label for="vol-master" class="track-label">Volym</label>
+            <input type="range" id="vol-master" class="slider slider-track" min="0" max="1" step="0.01" value="0.5">
             <button class="mute-btn" data-track="master">
               <img src="{{ url_for('static', filename='images/icon_unmute.png') }}" alt="Mute master">
             </button>
@@ -81,14 +81,14 @@
 
           <!-- Song -->
           <div class="track">
-            <label for="vol-vocals" class="track__label">Sång</label>
-            <input type="range" id="vol-vocals" class="slider slider--track" min="0" max="1" step="0.01" value="1">
+            <label for="vol-vocals" class="track-label">Sång</label>
+            <input type="range" id="vol-vocals" class="slider slider-track" min="0" max="1" step="0.01" value="1">
           </div>
 
           <!-- Instrument -->
           <div class="track">
-            <label for="vol-instr" class="track__label">Instrument</label>
-            <input type="range" id="vol-instr" class="slider slider--track" min="0" max="1" step="0.01" value="1">
+            <label for="vol-instr" class="track-label">Instrument</label>
+            <input type="range" id="vol-instr" class="slider slider-track" min="0" max="1" step="0.01" value="1">
           </div>
         </div>
       </section>
