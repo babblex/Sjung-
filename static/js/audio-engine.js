@@ -93,6 +93,20 @@ export function initAudioEngine() {
   function play()  { ctx.resume(); audioVocals.play(); audioInstr.play(); }
   function pause() {               audioVocals.pause(); audioInstr.pause(); }
 
+  // ⭐ Anropas varje gång ljudspelaren rapporterar ny tid
+  function onTimeUpdate(callback) {
+    audioVocals.addEventListener("timeupdate", () => {
+      callback(audioVocals.currentTime, audioVocals.duration || 0);
+    });
+  }
+
+  // ⭐ Hoppa till valfri position i låten (scrub)
+  function seekTo(seconds) {
+    audioVocals.currentTime = seconds;
+    audioInstr.currentTime  = seconds;  // håller spåren i synk
+  }
+
   /* ------- export -------------------------------------------- */
-  return { play, pause, loadSong, resetVolumes, ctx };   
+  return { play, pause, loadSong, resetVolumes, ctx,
+    onTimeUpdate, seekTo };   
 }

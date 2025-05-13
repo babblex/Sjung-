@@ -197,6 +197,54 @@ body {
   margin-top: .25rem;
 }
 
+/* === Progress-bar (låttid) ============================================= */
+
+.progress {              /* rad med allt – tid, slider, tid */
+  margin: 0.5rem 0;
+}
+
+.progress-bar {          /* själva linjen */
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #1e3d2d;   /* mörkgrön – byt vid behov */
+  border-radius: 3px;
+  cursor: pointer;
+
+  /* låst som standard – användaren kan inte scrubba */
+  pointer-events: none;
+}
+
+/* när JS lägger till klassen .scrubbable blir slidern klick-/dragbar */
+.progress-bar.scrubbable {
+  pointer-events: auto;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;   /* behövs i vissa WebKit-kloner */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4c4c4c;
+  box-shadow: 0 0 3px #0006;
+
+  /* ★ lyft upp tummen 5 px så den hamnar ovanför linjen (6 px hög) */
+  margin-top: -5px;
+}
+
+.progress-bar::-moz-range-thumb {       /* Firefox */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4c4c4c;
+  border: none;
+}
+
+.time-label {            /* 00:00 / 03:52 */
+  font-size: 0.9rem;
+  min-width: 42px;       /* förhindrar hopp när siffror ökar */
+}
+
 .track {
   position: relative;          
   margin-top: 1.25rem;
@@ -230,6 +278,7 @@ body {
   width: 100%; 
 }
 
+
 .mute-btn.muted {
   background: #808080;       
   box-shadow: inset 0 0 4px #00000033;
@@ -258,3 +307,16 @@ html, body {
 #pause-button {
   display: none;  /* Pausknappen är initialt dold */
 }
+
+/* === Knapprad =================================================== */
+.controls {
+  display: flex;                 /* radlayout */
+  justify-content: center;       /* centrera horisontellt */
+  align-items: center;           /* centrera vertikalt */
+  gap: 1.25rem;                  /* avstånd mellan ikonerna */
+}
+
+/* få bort eventuella nedre mellanrum på img-taggarna */
+.controls img { display: block; }
+
+.controls .symbols-header { width: 35px; height: 35px; object-fit: contain; }

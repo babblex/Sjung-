@@ -9,6 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const playBtn  = document.getElementById("play-button");
   const pauseBtn = document.getElementById("pause-button");
 
+  const progressBar  = document.getElementById("seek");
+  const curTimeLabel = document.getElementById("cur-time");
+  const totTimeLabel = document.getElementById("tot-time");
+
+  function fmt(sec) {
+    const m = String(Math.floor(sec / 60)).padStart(2, "0");
+    const s = String(Math.floor(sec % 60)).padStart(2, "0");
+    return `${m}:${s}`;
+  }
+
   playBtn.addEventListener("click", () => {
     audioAPI.play();
     playBtn.style.display  = "none";
@@ -21,6 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseBtn.style.display = "none";
   });
 
+    /* ── koppla currentTime → slider & etiketter ─────────────── */
+  audioAPI.onTimeUpdate((now, total) => {
+    if (total) {                         // duration blir känd efter metadata
+      progressBar.max           = total;
+      totTimeLabel.textContent  = fmt(total);
+    }
+    progressBar.value           = now;   // flytta pricken
+    curTimeLabel.textContent    = fmt(now);
+  });
+
+  
+  progressBar.classList.add("scrubbable");
+  progressBar.addEventListener("input",() => audioAPI.seekTo(+progressBar.value));
 
 
   const openBtn  = document.getElementById("menu-toggle");
@@ -46,7 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function nextSong() {
     current = (current + 1) % songs.length;    
-    audioAPI.loadSong(songs[current]);         
+    audioAPI.loadSong(songs[current]);
+    
+    progressBar.value        = 0;
+    curTimeLabel.textContent = "00:00";
+    totTimeLabel.textContent = "--:--";
+
+
     audioAPI.play();                           
     playBtn .style.display = "none";           
     pauseBtn.style.display = "inline";
@@ -56,10 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector('img[alt="shuffle"]')       
     .addEventListener("click", nextSong);
-});
 
-
-document.addEventListener('DOMContentLoaded', function () {
   const toggleBtn = document.querySelector('#toggleBtn'); 
   const lyricsBox = document.getElementById('song-lyrics'); 
 
@@ -76,3 +102,5 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleBtn.src = (lyricsBox.style.display === 'none') ? hideLyricsSrc : seeLyricsSrc;
   });
 });
+
+
