@@ -87,7 +87,7 @@ body {
   padding: 0;
 }
 
-.menu-list__item {
+.menu-list-item {
   margin-bottom: 1rem; 
 }
 
@@ -111,11 +111,11 @@ body {
   cursor: pointer;
 }
 
-.chip__icon  { 
+.chip-icon  { 
   height: 1.5rem; 
 }
 
-.chip__label { 
+.chip-label { 
   flex: 1; 
 }   
 
@@ -126,23 +126,23 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.panel__header {
+.panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: .5rem;
 }
 
-.panel__icon  { 
+.panel-icon { 
   height: 1.5rem; 
 }
 
-.panel__title { 
+.panel-title { 
   margin-right: 8px; 
   font-size: 1.5rem; 
 }
 
-.panel__reset {
+.panel-reset {
   background-color: rgba(46, 75, 59, 1);
   color: white;
   border: none;
@@ -152,13 +152,13 @@ body {
   cursor: pointer;
 }
 
-.panel__metronome {
+.panel-metronome {
   display: block;
   margin: 1rem auto;
   width: 40%;              
 }
 
-.panel__value {
+.panel-value {
   text-align: center;
   font-size: 1.4rem;
   font-weight: 600;
@@ -203,7 +203,7 @@ body {
   margin-top: 1.25rem;
 }
 
-.track__label {
+.track-label {
   display: block;
   margin-bottom: .25rem;
   font-weight: 600;
@@ -226,7 +226,7 @@ body {
   height: 1.1rem; 
 }
 
-.slider--track { 
+.slider-track { 
   width: 100%; 
 }
 
