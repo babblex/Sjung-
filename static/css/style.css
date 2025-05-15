@@ -199,15 +199,24 @@ body {
 
 /* === Progress-bar (låttid) ============================================= */
 
-.progress {              /* rad med allt – tid, slider, tid */
-  margin: 0.5rem 0;
+.progress {
+  display: flex;               /* bootstrap sätter flex, vi behåller */
+  align-items: center;         /* vertikal centrering av tider */
+
+  margin: 0.5rem 0 0.25rem;    /* valfritt: lite luft under */
+  background: transparent;     /* ★ ingen grå bakgrund   */
+  border: none;                /* ★ ingen ram            */
+  height: auto;                /* ★ låt innehållet styra */
+  border-radius: 0;            /* ★ inga rundade hörn    */
+  overflow: visible;           /* ★ klipp inte bort tummen */
 }
 
 .progress-bar {          /* själva linjen */
   appearance: none;
   width: 100%;
-  height: 6px;
-  background: #82C39F;   /* mörkgrön – byt vid behov */
+  height: 24px;
+  padding: 4px 0;
+  background: transparent;   /* mörkgrön – byt vid behov */
   border-radius: 3px;
   cursor: pointer;
 
@@ -228,8 +237,9 @@ body {
   background: #4c4c4c;
   box-shadow: 0 0 3px #0006;
 
-  /* ★ lyft upp tummen 5 px så den hamnar ovanför linjen (6 px hög) */
-  margin-top: -5px;
+  position: relative;   /* tummen över linjen */
+  z-index: 2;
+  margin-top: -6px;
 }
 
 .progress-bar::-moz-range-thumb {       /* Firefox */
@@ -238,6 +248,8 @@ body {
   border-radius: 50%;
   background: #4c4c4c;
   border: none;
+  position: relative;   /* tummen över linjen */
+  z-index: 2;
 }
 
 .time-label {            /* 00:00 / 03:52 */
@@ -320,3 +332,21 @@ html, body {
 .controls img { display: block; }
 
 .controls .symbols-header { width: 35px; height: 35px; object-fit: contain; }
+
+
+/* ===== Track (själva linjen) – WebKit-motorer ================= */
+.progress-bar::-webkit-slider-runnable-track {
+  height: 6px;               /* linjens tjocklek          */
+  background: #1e3d2d;       /* din mörkgröna linje       */
+  border-radius: 3px;
+
+
+}
+
+/* ===== Track – Firefox ======================================= */
+.progress-bar::-moz-range-track {
+  height: 6px;
+  background: #1e3d2d;
+  border-radius: 3px;
+
+}
