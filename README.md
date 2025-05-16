@@ -1,6 +1,7 @@
-# Sjung-
-interactive music player
+# Sjung- interactive music player
 
-Hejhej här har vi inga fungerade funktioner. Klicka på index.html för att se vår fantastiska statiska webbsida. Hoppas ni har det bra!
+Instructions:
+1. You need to install the framework flask 
+2. Run program via python file called main.py
 
-https://github.com/babblex/Sjung-.git
+Link to github: https://github.com/babblex/Sjung-.git
