@@ -131,7 +131,39 @@
               <img src="{{ url_for('static', filename='images/pause_btn.png') }}" alt="pause" id="pause-button" class="symbols-header show-text" data-play="{{ url_for('static', filename='images/play_btn.png') }}" data-pause="{{ url_for('static', filename='images/pause_btn.png') }}">
               <img src="{{ url_for('static', filename='images/fast_forward_btn.png') }}" alt="fast-forward" class="symbols-header">
               <img src="{{ url_for('static', filename='images/repeat.png') }}" alt="repeat" class="symbols-header">
+
+          <!-- Progress-bar med tid -->
+          <div class="col-12">
+            <div class="progress d-flex align-items-center">
+              <span id="cur-time" class="time-label me-2">00:00</span>
+        
+              <input type="range"
+                     id="seek"
+                     class="progress-bar flex-grow-1"
+                     value="0" min="0" step="0.1">
+        
+              <span id="tot-time" class="time-label ms-2">--:--</span>
             </div>
+          </div>
+        
+          <!-- Spel-/navigeringsknapparna -->
+          <div class="col-12 text-center controls">
+            <img src="{{ url_for('static', filename='images/shuffle_btn.png') }}"      alt="shuffle"      class="symbols-header">
+            <img src="{{ url_for('static', filename='images/rewind_btn.png') }}"       alt="rewind"      class="symbols-header">
+        
+            <!-- play / pause växlar vi i JS -->
+            <img src="{{ url_for('static', filename='images/play_btn.png') }}"         alt="play"  id="play-button"  class="symbols-header show-text"
+                 data-play="{{ url_for('static', filename='images/play_btn.png') }}"
+                 data-pause="{{ url_for('static', filename='images/pause_btn.png') }}">
+        
+            <img src="{{ url_for('static', filename='images/pause_btn.png') }}"        alt="pause" id="pause-button" class="symbols-header show-text"
+                 data-play="{{ url_for('static', filename='images/play_btn.png') }}"
+                 data-pause="{{ url_for('static', filename='images/pause_btn.png') }}">
+        
+            <img src="{{ url_for('static', filename='images/fast_forward_btn.png') }}" alt="fast-forward" class="symbols-header">
+            <img src="{{ url_for('static', filename='images/repeat.png') }}"           alt="repeat"       class="symbols-header">
+          </div>
+        
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script type="module" src="{{ url_for('static', filename='js/ui-handlers.js') }}"></script>
