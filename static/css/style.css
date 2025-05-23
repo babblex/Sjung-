@@ -199,9 +199,16 @@ body {
 
 /* === Progress-bar (låttid) ============================================= */
 
-.progress {              /* rad med allt – tid, slider, tid */
-  margin: 0.5rem 0;
-  overflow: visible;
+.progress {
+  display: flex;               /* bootstrap sätter flex, vi behåller */
+  align-items: center;         /* vertikal centrering av tider */
+
+  margin: 0.5rem 0 0.25rem;    /* valfritt: lite luft under */
+  background: transparent;     /* ★ ingen grå bakgrund   */
+  border: none;                /* ★ ingen ram            */
+  height: auto;                /* ★ låt innehållet styra */
+  border-radius: 0;            /* ★ inga rundade hörn    */
+  overflow: visible;           /* ★ klipp inte bort tummen */
 }
 
 .progress-bar {
