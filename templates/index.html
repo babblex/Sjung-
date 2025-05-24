@@ -14,7 +14,7 @@
 
   <body>
     <aside id="side-menu" class="side-menu">
-      <button id="close-menu" class="menu-button">
+      <button id="close-menu">
         <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="side-meny-button" class="symbols-header">
       </button>
 
@@ -94,6 +94,32 @@
       </section>
 
     </aside>
+    <!-- Modal för Tips -->
+  <div class="modal fade" id="tipsModal" tabindex="-1" aria-labelledby="tipsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="tipsModalLabel">TIPS</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
+        </div>
+        <div class="modal-body">
+          <h6>Fokus på text</h6>
+          <ul>
+            <li>Berätta den fritt som en saga. Man kan ha bilder till som stöd, eller låta barnen rita egna bilder.</li>
+            <li>Call-and-response: Prata texten i korta delar, exempelvis: "Det var så roligt jag måste skratta", låt barnen härma. Läs med samma rytm som sången sedan sjungs i. Gör på samma sätt med melodin till.</li>
+            <li>Call-and-response.</li>
+          </ul>
+          <h6>Musikens form som inom-musikaliskt fokus</h6>
+          <p>Ett annat sätt att lära sig en sång på är att arbeta utifrån musikens form. Till "Det var så roligt jag måste skratta" kan man exempelvis göra så här:</p>
+          <ul>
+            <li><strong>Intro:</strong> Hälsa på den som står bredvid</li>
+            <li><strong>Vers:</strong> Stå på din plats i ringen, sjung och gör TAKK.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!--Main div-->
     <div class = "container-fluid main-div">
         <header class = "row">

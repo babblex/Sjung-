@@ -99,4 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
     lyricsBox.style.display = (lyricsBox.style.display === 'none') ? 'block' : 'none';
     toggleBtn.src = (lyricsBox.style.display === 'none') ? hideLyricsSrc : seeLyricsSrc;
   });
+  // Visa modalen för tips
+const tipsBtn = document.querySelector('[data-action="tips"]');
+if (tipsBtn) {
+  tipsBtn.addEventListener('click', function() {
+    const tipsModal = new bootstrap.Modal(document.getElementById('tipsModal'));
+    tipsModal.show();
+  });
+}
 });
