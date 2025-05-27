@@ -99,7 +99,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" class="menu-button" tipsModalLabel>TIPS</h5>
+          <h5 id="tipsModalLabel" class="modal-title">TIPS</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
         </div>
         <div class="modal-body">
@@ -119,6 +119,49 @@
       </div>
     </div>
   </div>
+  <!-- Modal för Låtinfo -->
+  <div class="modal fade" id="infoModal"
+  tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+  <div class="modal-content">
+
+  <div class="modal-header">
+    <h5 id="infoModalLabel" class="modal-title">LÅT­INFORMATION</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Stäng"></button>
+  </div>
+
+  <div class="modal-body">
+    <!-- === här lägger ni text, bilder och ev. låt-metadata === -->
+    <h6>Det var så roligt jag måste skratta</h6>
+    <p><strong>Text:</strong> L. Hellsing &nbsp; <strong>Musik:</strong> K. Brodin</p>
+
+    <p>”Det var så roligt jag måste skratta” är vald utifrån att det är en sång med 
+      relativt mycket textvilket är härligt för många av de lite äldre barnen. 
+      Dessutom är det en text som leker med språket och som med fördel kan illustreras med bilder.
+      Den har en tydlig jazz-genre och går i 3-takt.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-md-6 text-center">
+        <img src="/static/images/band.png" class="img-fluid rounded-3" alt="Bandet">
+        <p class="mt-2"><strong>Arrangör och pianist:</strong><br> Erland Sjunnesson<br>
+            <strong>Kontrabas:</strong> Jan Karlsson<br>
+            <strong>Trummor:</strong> Bo Håkansson</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="/static/images/sangare.png" class="img-fluid rounded-3" alt="Sångare">
+        <p class="mt-2"><strong>Sångare:</strong><br> Malin L. Dovstedt<br>
+          Isabelle Koenen<br> Carl-Johan Hedbrand</p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+  
 
     <!--Main div-->
     <div class = "container-fluid main-div">
