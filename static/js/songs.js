@@ -12,8 +12,8 @@ det kom en trekantig gubbe i …
 `,
 
     
-    audioVocals: "/static/audio/Det_var_sa_roligt_Ljudfiler/Det_var_sa_roligt_Sopran.mp3",
-    audioInstr : "/static/audio/Det_var_sa_roligt_Ljudfiler/Det_var_sa_roligt_No_vocals.mp3",
+    audioVocals: "/static/audio/Det var så roligt Ljudfiler/Det var så roligt Sopran.mp3",
+    audioInstr : "/static/audio/Det var så roligt Ljudfiler/Det var så roligt No vocals.mp3",
 
     tips: {
       focusText: [

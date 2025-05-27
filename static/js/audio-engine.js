@@ -85,7 +85,25 @@ export function initAudioEngine() {
   loadSong(songs[0]);
 
   /* ------- sliders → gain-lyssnare ------------- */
-  sMaster.addEventListener("input", () => gainMaster.gain.value = +sMaster.value);
+  sMaster.addEventListener("input", () => {
+    const val = +sMaster.value;
+    gainMaster.gain.value = val;
+  
+    /* --- synka mute-knappen ---------------------------------- */
+    if (val === 0) {                          // volym = 0  ⇒ visa MUTED
+      if (!muteBtn.classList.contains("muted")) {
+        muteBtn.classList.add("muted");
+        muteIcon.src = "/static/images/icon_mute.png";
+      }
+    } else {                                  // volym > 0 ⇒ visa UNMUTED
+      if (muteBtn.classList.contains("muted")) {
+        muteBtn.classList.remove("muted");
+        muteIcon.src = "/static/images/icon_unmute.png";
+      }
+      /* spara ev. nytt ”senaste värde” för återställning */
+      prevMasterValue = sMaster.value;
+    }
+  });
   sVocals.addEventListener("input", () => gainVocals.gain.value = +sVocals.value);
   sInstr .addEventListener("input", () => gainInstr .gain.value = +sInstr .value);
 
