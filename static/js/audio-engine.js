@@ -6,6 +6,8 @@ export function initAudioEngine() {
 
   const audioVocals = new Audio();
   const audioInstr  = new Audio();
+  audioVocals.preservesPitch = audioInstr.preservesPitch = true;      
+  audioVocals.webkitPreservesPitch = audioInstr.webkitPreservesPitch = true;
   audioVocals.crossOrigin = audioInstr.crossOrigin = "anonymous";
 
   const srcVocals = ctx.createMediaElementSource(audioVocals);
@@ -79,6 +81,13 @@ export function initAudioEngine() {
     document.getElementById("song-writers").textContent =
       "Text & musik: " + song.writers.join(", ");
     document.getElementById("song-lyrics").textContent  = song.lyrics;
+
+     // ── tempo UI vid första inladdningen ───────────────────────
+    const tempoSlider  = document.getElementById("tempo-slider");
+    const tempoDisplay = document.getElementById("tempo-display");
+    tempoSlider.value       = song.defaultBpm;           
+    tempoDisplay.textContent = `${song.defaultBpm} BPM`;
+    setPlaybackRate(1);                                  // originalhastighet
   }
 
   /* ------- ladda första låten -------------------------------- */
@@ -111,6 +120,11 @@ export function initAudioEngine() {
   function play()  { ctx.resume(); audioVocals.play(); audioInstr.play(); }
   function pause() {               audioVocals.pause(); audioInstr.pause(); }
 
+  function setPlaybackRate(factor) {
+    audioVocals.playbackRate = factor;   // båda spår får samma faktor
+    audioInstr .playbackRate = factor;
+  }
+
   // ⭐ Anropas varje gång ljudspelaren rapporterar ny tid
   function onTimeUpdate(callback) {
     audioVocals.addEventListener("timeupdate", () => {
@@ -126,5 +140,5 @@ export function initAudioEngine() {
 
   /* ------- export -------------------------------------------- */
   return { play, pause, loadSong, resetVolumes, ctx,
-    onTimeUpdate, seekTo };   
+    onTimeUpdate, seekTo, setPlaybackRate  };   
 }

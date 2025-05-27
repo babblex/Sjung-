@@ -13,6 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const curTimeLabel = document.getElementById("cur-time");
   const totTimeLabel = document.getElementById("tot-time");
 
+  // ── tempo-element ──────────────────────────────────────────
+  const tempoSlider  = document.getElementById("tempo-slider");
+  const tempoDisplay = document.getElementById("tempo-display");
+
+/* Standard-BPM för aktuell låt – skrivs över i loadSong/nextSong */
+let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
+
   function fmt(sec) {
     const m = String(Math.floor(sec / 60)).padStart(2, "0");
     const s = String(Math.floor(sec % 60)).padStart(2, "0");
@@ -41,6 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
     curTimeLabel.textContent    = fmt(now);
   });
 
+  /* ── Tempo-slider → ändra playbackRate ───────────────────── */
+  tempoSlider.addEventListener("input", () => {
+    const bpm    = +tempoSlider.value;      // läs slider-värde (t.ex. 150)
+    const factor = bpm / defaultBpm;        // 150 / 136 ≈ 1,10
+
+    audioAPI.setPlaybackRate(factor);       // skalar båda ljudspår
+    tempoDisplay.textContent = `${bpm} BPM`; // uppdatera etiketten i UI:t
+  });
+
   
   progressBar.classList.add("scrubbable");
   progressBar.addEventListener("input",() => audioAPI.seekTo(+progressBar.value));
@@ -54,15 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", () => sideMenu.classList.remove("open"));
 
   const resetTempoBtn = document.querySelector('[data-reset="tempo"]');
-  const tempoSlider   = document.getElementById("tempo-slider");
-  const tempoDisplay  = document.getElementById("tempo-display");
-
-  const DEFAULT_TEMPO = parseInt(tempoSlider.getAttribute("value"), 10);
 
   resetTempoBtn.addEventListener("click", () => {
-    tempoSlider.value  = DEFAULT_TEMPO;
-    tempoDisplay.textContent = `${DEFAULT_TEMPO} BPM`;
-
+    tempoSlider.value       = defaultBpm;          // 136 eller låtens egen BPM
+    tempoDisplay.textContent = `${defaultBpm} BPM`;
+    audioAPI.setPlaybackRate(1);                   // ← NY rad: tillbaka till originaltempo
   });
 
   let current = 0; 
@@ -72,6 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
     current = (current + 1) % songs.length;    
     audioAPI.loadSong(songs[current]);
     currentSong = songs[current];
+
+    /* ── tempo UI när vi byter låt ─────────────────────────────── */
+    defaultBpm             = currentSong.defaultBpm;   // ny referens-BPM
+    tempoSlider.min        = 100;                       // samma spann
+    tempoSlider.max        = 175;
+    tempoSlider.value      = defaultBpm;
+    tempoDisplay.textContent = `${defaultBpm} BPM`;
+    audioAPI.setPlaybackRate(1);                       // återställ hastighet
+
     
     progressBar.value        = 0;
     curTimeLabel.textContent = "00:00";

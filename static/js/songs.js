@@ -3,6 +3,7 @@ export const songs = [
   {
     id:          "det_var_sa_roligt",
     title:       "Det var så roligt jag måste skratta",
+    defaultBpm: 136,
     writers:     ["L. Hellsing", "K. Brodin"],
 
     lyrics: `
