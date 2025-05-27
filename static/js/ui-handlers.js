@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBar  = document.getElementById("seek");
   const curTimeLabel = document.getElementById("cur-time");
   const totTimeLabel = document.getElementById("tot-time");
+  const elCur  = document.getElementById("lyric-current");
+  const elNext = document.getElementById("lyric-next");
+  let   cueIndex = 0;
 
   // ── tempo-element ──────────────────────────────────────────
   const tempoSlider  = document.getElementById("tempo-slider");
@@ -38,6 +41,8 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
     pauseBtn.style.display = "none";
   });
 
+  let currentSong = songs[0];
+
     /* ── koppla currentTime → slider & etiketter ─────────────── */
   audioAPI.onTimeUpdate((now, total) => {
     if (total) {                         // duration blir känd efter metadata
@@ -46,6 +51,27 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
     }
     progressBar.value           = now;   // flytta pricken
     curTimeLabel.textContent    = fmt(now);
+    
+
+
+        const cues = currentSong.cues;
+    if (cues && cueIndex + 1 < cues.length &&
+        now >= cues[cueIndex + 1].t) {
+
+      cueIndex++;
+
+      // animera båda raderna upp en radhöjd (2.7 rem)
+      elCur.style.transform  = "translateY(-2.7rem)";
+      elNext.style.transform = "translateY(-2.7rem)";
+
+      // efter animationen (350 ms) – återställ position och text
+      setTimeout(() => {
+        elCur.style.transform  = "translateY(0)";
+        elNext.style.transform = "translateY(0)";
+        elCur.textContent  = cues[cueIndex].line;
+        elNext.textContent = cues[cueIndex + 1]?.line || "";
+      }, 350);
+    }
   });
 
   /* ── Tempo-slider → ändra playbackRate ───────────────────── */
@@ -77,13 +103,17 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
     audioAPI.setPlaybackRate(1);                   // ← NY rad: tillbaka till originaltempo
   });
 
-  let current = 0; 
-  let currentSong = songs[0];                           
+  let current = 0;                            
 
   function nextSong() {
     current = (current + 1) % songs.length;    
     audioAPI.loadSong(songs[current]);
     currentSong = songs[current];
+    cueIndex            = 0;
+    elCur.textContent   = currentSong.cues[0]?.line || "";
+    elNext.textContent  = currentSong.cues[1]?.line || "";
+    elCur.style.transform  = "translateY(0)";
+    elNext.style.transform = "translateY(0)";
 
     /* ── tempo UI när vi byter låt ─────────────────────────────── */
     defaultBpm             = currentSong.defaultBpm;   // ny referens-BPM
@@ -108,19 +138,18 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
     .querySelector('img[alt="shuffle"]')       
     .addEventListener("click", nextSong);
 
-  const toggleBtn = document.querySelector('#toggle-btn'); 
-  const lyricsBox = document.getElementById('song-lyrics'); 
+    /* ----- ögon-ikonen: visa/dölj långtext ------------------------ */
+  const toggleBtn  = document.getElementById("toggle-btn");
+  const lyricsFull = document.getElementById("song-lyrics");
 
-  const seeLyricsSrc = toggleBtn.getAttribute('data-see-lyrics');  
-  const hideLyricsSrc = toggleBtn.getAttribute('data-hide-lyrics'); 
+  const showIcon = toggleBtn.getAttribute("data-see-lyrics");   // öppen ikon
+  const hideIcon = toggleBtn.getAttribute("data-hide-lyrics");  // stängd ikon
 
-  lyricsBox.style.display = 'block'; 
-  toggleBtn.src = seeLyricsSrc; 
+  toggleBtn.src = showIcon;           // startläge: text dold
 
-  toggleBtn.addEventListener('click', function () {
-
-    lyricsBox.style.display = (lyricsBox.style.display === 'none') ? 'block' : 'none';
-    toggleBtn.src = (lyricsBox.style.display === 'none') ? hideLyricsSrc : seeLyricsSrc;
+  toggleBtn.addEventListener("click", () => {
+    const isHidden = lyricsFull.classList.toggle("d-none"); // växla synlighet
+    toggleBtn.src   = isHidden ? showIcon : hideIcon;       // byt ikon
   });
 
   function fillModal(action) {

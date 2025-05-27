@@ -270,6 +270,26 @@ body {
   border: none;
 }
 
+.lyrics-pane {
+  height: 5.4rem;               /* exakt två rader */
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+.lyric {
+  font-size: 1.4rem;
+  line-height: 2.7rem;          /* = height / 2 */
+  margin: 0;
+  transition: transform .35s ease-out;
+}
+
+.lyric--next {
+  position: absolute;
+  top: 2.7rem;                  /* en rad ned */
+  width: 100%;
+}
+
 .time-label {            /* 00:00 / 03:52 */
   font-size: 0.9rem;
   min-width: 42px;       /* förhindrar hopp när siffror ökar */

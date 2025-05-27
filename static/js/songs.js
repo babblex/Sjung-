@@ -4,14 +4,26 @@ export const songs = [
     id:          "det_var_sa_roligt",
     title:       "Det var så roligt jag måste skratta",
     defaultBpm: 136,
+    cues: [
+      { t: 11.00, line: "Det var så roligt jag måste skratta" },
+      { t: 13.15, line: "Det kom en trekantig gubbe in" },
+      { t: 16.00, line: "Han hade träskor och näver-jacka" },
+      { t: 19.00, line: "Och hatten kantad med korva-skinn." },
+      { t: 21.00, line: "Han satte sig på en pall i köket" },
+      { t: 26.23, line: "Och drog ur fickan sitt munspel opp" },
+      { t: 32.00, line: "Och börja spela så allting dansa" },
+      { t: 37.00, line: "Med skrim och skrammel och tjo och hopp" },
+      { t: 64.00, line: "Det var så roligt jag måste skratta" },
+      { t: 66.00, line: "Det gick en spelande gubbe ut" },
+      { t: 69.00, line: "Och allting dansade bort med honom" },
+      { t: 71.00, line: "Så hela köket blev tomt till slut." },
+      { t: 74.00, line: "Det var så länge sen som det hände" },
+      { t: 79.00, line: "Men jag blev sittande där jag var." },
+      { t: 85.00, line: "Först blev jag morfar, så blev jag farfar" },
+      { t: 90.00, line: "Så blev jag farfarsfar farfars far" }
+    ],
     writers:     ["L. Hellsing", "K. Brodin"],
-
-    lyrics: `
-Det var så roligt, jag måste skratta
-det kom en trekantig gubbe i …
-… så blev jag farfarsfar farfarsfar
-`,
-
+    
     
     audioVocals: "/static/audio/Det var så roligt Ljudfiler/Det var så roligt Sopran.mp3",
     audioInstr : "/static/audio/Det var så roligt Ljudfiler/Det var så roligt No vocals.mp3",

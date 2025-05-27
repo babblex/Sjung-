@@ -81,6 +81,7 @@ export function initAudioEngine() {
     document.getElementById("song-writers").textContent =
       "Text & musik: " + song.writers.join(", ");
     document.getElementById("song-lyrics").textContent  = song.lyrics;
+    
 
      // ── tempo UI vid första inladdningen ───────────────────────
     const tempoSlider  = document.getElementById("tempo-slider");
