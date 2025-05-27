@@ -94,71 +94,42 @@
       </section>
 
     </aside>
-    <!-- Modal för Tips -->
-  <div class="modal fade" id="tipsModal" tabindex="-1" aria-labelledby="tipsModalLabel" aria-hidden="true">
+  <!-- Modal för Tips -->
+  <div class="modal fade" id="tipsModal"
+      tabindex="-1" aria-labelledby="tipsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content">
+
         <div class="modal-header">
           <h5 id="tipsModalLabel" class="modal-title">TIPS</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Stäng"></button>
         </div>
-        <div class="modal-body">
-          <h6>Fokus på text</h6>
-          <ul>
-            <li>Berätta den fritt som en saga. Man kan ha bilder till som stöd, eller låta barnen rita egna bilder.</li>
-            <li>Call-and-response: Prata texten i korta delar, exempelvis: "Det var så roligt jag måste skratta", låt barnen härma. Läs med samma rytm som sången sedan sjungs i. Gör på samma sätt med melodin till.</li>
-            <li>Call-and-response.</li>
-          </ul>
-          <h6>Musikens form som inom-musikaliskt fokus</h6>
-          <p>Ett annat sätt att lära sig en sång på är att arbeta utifrån musikens form. Till "Det var så roligt jag måste skratta" kan man exempelvis göra så här:</p>
-          <ul>
-            <li><strong>Intro:</strong> Hälsa på den som står bredvid</li>
-            <li><strong>Vers:</strong> Stå på din plats i ringen, sjung och gör TAKK.</li>
-          </ul>
-        </div>
+
+      <!-- ‼  JS fyller #tipsModalBody beroende på aktuell låt -->
+        <div class="modal-body" id="tipsModalBody"></div>
+
       </div>
     </div>
   </div>
+
   <!-- Modal för Låtinfo -->
   <div class="modal fade" id="infoModal"
-  tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-  <div class="modal-content">
+      tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
 
-  <div class="modal-header">
-    <h5 id="infoModalLabel" class="modal-title">LÅT­INFORMATION</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal"
-            aria-label="Stäng"></button>
-  </div>
+        <div class="modal-header">
+          <h5 id="infoModalLabel" class="modal-title">LÅTINFORMATION</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Stäng"></button>
+        </div>
 
-  <div class="modal-body">
-    <!-- === här lägger ni text, bilder och ev. låt-metadata === -->
-    <h6>Det var så roligt jag måste skratta</h6>
-    <p><strong>Text:</strong> L. Hellsing &nbsp; <strong>Musik:</strong> K. Brodin</p>
+        <!-- ‼  JS fyller #infoModalBody beroende på aktuell låt -->
+        <div class="modal-body" id="infoModalBody"></div>
 
-    <p>”Det var så roligt jag måste skratta” är vald utifrån att det är en sång med 
-      relativt mycket textvilket är härligt för många av de lite äldre barnen. 
-      Dessutom är det en text som leker med språket och som med fördel kan illustreras med bilder.
-      Den har en tydlig jazz-genre och går i 3-takt.
-    </p>
-
-    <div class="row g-4">
-      <div class="col-md-6 text-center">
-        <img src="/static/images/band.png" class="img-fluid rounded-3" alt="Bandet">
-        <p class="mt-2"><strong>Arrangör och pianist:</strong><br> Erland Sjunnesson<br>
-            <strong>Kontrabas:</strong> Jan Karlsson<br>
-            <strong>Trummor:</strong> Bo Håkansson</p>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="/static/images/sangare.png" class="img-fluid rounded-3" alt="Sångare">
-        <p class="mt-2"><strong>Sångare:</strong><br> Malin L. Dovstedt<br>
-          Isabelle Koenen<br> Carl-Johan Hedbrand</p>
       </div>
     </div>
-  </div>
-
-  </div>
-  </div>
   </div>
 
   

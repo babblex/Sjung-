@@ -65,11 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  let current = 0;                            
+  let current = 0; 
+  let currentSong = songs[0];                           
 
   function nextSong() {
     current = (current + 1) % songs.length;    
     audioAPI.loadSong(songs[current]);
+    currentSong = songs[current];
     
     progressBar.value        = 0;
     curTimeLabel.textContent = "00:00";
@@ -99,17 +101,40 @@ document.addEventListener("DOMContentLoaded", () => {
     lyricsBox.style.display = (lyricsBox.style.display === 'none') ? 'block' : 'none';
     toggleBtn.src = (lyricsBox.style.display === 'none') ? hideLyricsSrc : seeLyricsSrc;
   });
-  /* ----- Modalknappar (tips, info) ------------------------------ */
-  document.querySelectorAll('[data-action]').forEach(btn => {
-    const action = btn.dataset.action;
 
-    if (action === 'tips' || action === 'info') {
-      btn.addEventListener('click', () => {
-        bootstrap.Modal
-          .getOrCreateInstance(document.getElementById(`${action}Modal`))
-          .show();
-      });
+  function fillModal(action) {
+    if (!currentSong) return;
+  
+    if (action === "tips") {
+      const body = document.getElementById("tipsModalBody");
+      body.innerHTML = `
+        <h6>Fokus på text</h6>
+        <ul>${currentSong.tips.focusText
+                .map(t => `<li>${t}</li>`).join("")}</ul>
+  
+        <h6>Musikens form som inom-musikaliskt fokus</h6>
+        <ul>${currentSong.tips.musikForm
+                .map(t => `<li>${t}</li>`).join("")}</ul>`;
     }
-  });          
+  
+    if (action === "info") {
+      document.getElementById("infoModalBody").innerHTML =
+        currentSong.infoHtml;
+    }
+  }
+/* ----- Modalknappar (tips, info) ------------------------------ */
+document.querySelectorAll('[data-action]').forEach(btn => {
+  const action = btn.dataset.action;          // "tips", "info", "lang" ...
 
-});            
+  if (action === 'tips' || action === 'info') {
+    btn.addEventListener('click', () => {
+      fillModal(action);                      // <-- NYTT
+      bootstrap.Modal
+        .getOrCreateInstance(
+          document.getElementById(`${action}Modal`)
+        )
+        .show();
+    });
+  }
+});         
+});  
