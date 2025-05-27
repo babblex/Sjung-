@@ -13,7 +13,7 @@
   transition: width 0.3s ease, margin-right 0.3s ease;
 }
 
-.side-menu.open + .main-div {
+.side-menu.open ~ .main-div {
   width: calc(100% - 280px);
   margin-left: 0;                   
   margin-right: 280px;              
