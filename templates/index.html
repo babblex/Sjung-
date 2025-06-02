@@ -141,23 +141,20 @@
               <button id="menu-toggle" class="menu-button">
                 <img src="{{ url_for('static', filename='images/side_meny_btn.png') }}" alt="side-meny-button" class="symbols-header">
               </button>
-              <img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">
+              <!--<img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">-->
             </div>
-            <div class = "col-6 text-start">
-              <p id="song-title"></p>
-              <p id="song-writers"></p>
+            <div class="col-6 ps-5 song-info">
+              <p id="song-title"   class="mb-0 fw-bold fs-3"></p>
+              <p id="song-writers" class="mb-0 medium"></p>
             </div>
         </header>
         <!--empty-box-->
         <main class = "row d-flex align-items-end" id="main-height">
-            <div class = "col-10">
+            <div class="col-12 text-center position-relative">
               <pre id="song-lyrics" class="lyrics-box"></pre>
-            </div>
-            <!--Text-box-eye-->
-            <div class="col-2 text-end">
-              <img src="{{ url_for('static', filename='images/see_lyrics_btn.png') }}" alt="song-lyrics" class="img-fluid show-text" id="toggle-btn"
-                data-see-lyrics="{{ url_for('static', filename='images/see_lyrics_btn.png') }}"
-                data-hide-lyrics="{{ url_for('static', filename='images/hide_lyrics_btn.png') }}">
+              <img src="{{ url_for('static', filename='images/see_lyrics_btn.png') }}" alt="song-lyrics" class="show-text position-absolute" id="toggle-btn"
+              data-see-lyrics="{{ url_for('static', filename='images/see_lyrics_btn.png') }}"
+              data-hide-lyrics="{{ url_for('static', filename='images/hide_lyrics_btn.png') }}">
             </div>
         </main>
         <footer class = "row">

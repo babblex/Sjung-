@@ -78,8 +78,8 @@ export function initAudioEngine() {
     audioVocals.currentTime = audioInstr.currentTime = 0;
 
     document.getElementById("song-title").textContent   = song.title;
-    document.getElementById("song-writers").textContent =
-      "Text & musik: " + song.writers.join(", ");
+    document.getElementById("song-writers").innerHTML   =
+      "<strong>Låtskrivare:</strong> " + song.writers.join(", ");
     document.getElementById("song-lyrics").textContent  = song.lyrics;
 
      // ── tempo UI vid första inladdningen ───────────────────────
@@ -137,6 +137,27 @@ export function initAudioEngine() {
     audioVocals.currentTime = seconds;
     audioInstr.currentTime  = seconds;  // håller spåren i synk
   }
+  // ── När låten tar slut ─────────────────────────────────────
+  audioVocals.addEventListener("ended", () => {
+  // 1. Återställ uppspelningstiden
+    audioVocals.currentTime = 0;
+    audioInstr.currentTime  = 0;
+
+  // 2. Visa play-knapp, göm paus
+    const playBtn  = document.getElementById("play-button");
+    const pauseBtn = document.getElementById("pause-button");
+    playBtn.style.display  = "inline";
+    pauseBtn.style.display = "none";
+
+  // 3. Återställ progress-baren & tidsetiketter
+    const progressBar = document.getElementById("seek");
+    const curTime     = document.getElementById("cur-time");
+    const totTime     = document.getElementById("tot-time");
+
+    progressBar.value        = 0;
+    curTime.textContent      = "00:00";
+    totTime.textContent      = "--:--";
+  });
 
   /* ------- export -------------------------------------------- */
   return { play, pause, loadSong, resetVolumes, ctx,

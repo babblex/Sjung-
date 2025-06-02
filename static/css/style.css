@@ -20,7 +20,7 @@
 }
 
 #main-height{
-  min-height: 600px;
+  min-height: calc(100vh - 280px); /* ≈ 80 % av skärmen på laptophöjd */
 }
 
 .show-text {
@@ -29,6 +29,15 @@
 
 .symbols-header{
   max-height: 35px;
+}
+
+.song-info {
+  padding-top: 2.2rem;   /* ≈ 35 px – justera tills det ser bra ut */
+}
+
+/* valfritt: lite större på bredare skärmar */
+@media (min-width: 992px) {
+  .song-info { padding-top: 2.8rem; }
 }
 
 .menu-button {
@@ -337,6 +346,12 @@ html, body {
   display: none; 
 }
 
+#toggle-btn {
+  right: 2rem;          /* avstånd från högerkant   */
+  bottom: 1.5rem;       /* avstånd upp från progress-baren */
+  width: 110px;         /* valfritt: lås bredden    */
+}
+
 /* === Knapprad =================================================== */
 .controls {
   display: flex;                 /* radlayout */
@@ -345,7 +360,19 @@ html, body {
   gap: 1.25rem;                  /* avstånd mellan ikonerna */
 }
 
-/* få bort eventuella nedre mellanrum på img-taggarna */
-.controls img { display: block; }
+#song-lyrics {
+  white-space: pre-wrap; /* behåll manuella radbrytningar + bryt långa ord */
+  width: 100%;           /* säkerställ full bredd även om någon skriver över grid-klassen */
+}
 
-.controls .symbols-header { width: 35px; height: 35px; object-fit: contain; }
+/* få bort eventuella nedre mellanrum på img-taggarna */
+.controls img { 
+  display: block; 
+}
+
+.controls .symbols-header { 
+  width: 60px; 
+  height: 60px; 
+  object-fit: contain; 
+}
+
