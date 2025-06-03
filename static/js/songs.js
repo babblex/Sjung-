@@ -82,5 +82,71 @@ det kom en trekantig gubbe i …
       `
   },
 
+  {
+    id:          "dont_stop_the_party",
+    title:       "Don't Stop the Party",
+    defaultBpm: 127,
+    writers:     ["A.C.Perez", "F.Hibbert", "J.Martinez", "J.Garcia", "T.J.Rozdilski", "W.Lynn"],
+
+    lyrics: `
+    Yeah, yeah, yeah, 
+    que no pare la fiesta
+    Don't stop the party
+`,
+
+    
+    audioVocals: "/static/audio/Dont Stop the Party Ljudfiler/Dont Stop the Party Vocals.mp3",
+    audioInstr : "/static/audio/Dont Stop the Party Ljudfiler/Dont Stop the Party Instrumental.mp3",
+
+    tips: {
+      focusText: [
+        "Berätta den fritt som en saga. Man kan ha bilder till som stöd, eller låta barnen rita egna bilder.",
+        "Call-and-response: Prata texten i korta delar, låt barnen härma …",
+        "Call-and-response."
+      ],
+      musikForm: [
+        "<strong>Intro:</strong> Hälsa på den som står bredvid",
+        "<strong>Vers:</strong> Stå på din plats i ringen, sjung och gör TAKK."
+      ]
+    },
+
+    infoHtml: /* html */ `
+      <h6>Don't Stop the Party</h6>
+      `
+  },
+
+  {
+    id:          "mamma_mia",
+    title:       "Mamma Mia",
+    defaultBpm: 137,
+    writers:     ["B.Ulvaeus", "B.Andersson", "S.Andersson"],
+
+    lyrics: `
+    Mamma mia, 
+    here I go again
+    My, my, how can I resist you?
+`,
+
+    
+    audioVocals: "/static/audio/Mamma Mia Ljudfiler/Mamma Mia Vocals.mp3",
+    audioInstr : "/static/audio/Mamma Mia Ljudfiler/Mamma Mia Instrumental.mp3",
+
+    tips: {
+      focusText: [
+        "Berätta den fritt som en saga. Man kan ha bilder till som stöd, eller låta barnen rita egna bilder.",
+        "Call-and-response: Prata texten i korta delar, låt barnen härma …",
+        "Call-and-response."
+      ],
+      musikForm: [
+        "<strong>Intro:</strong> Hälsa på den som står bredvid",
+        "<strong>Vers:</strong> Stå på din plats i ringen, sjung och gör TAKK."
+      ]
+    },
+
+    infoHtml: /* html */ `
+      <h6>Mamma Mia</h6>
+      `
+  },
+
 
 ];
