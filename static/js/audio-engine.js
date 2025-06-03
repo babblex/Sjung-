@@ -6,6 +6,7 @@ export function initAudioEngine() {
 
   const audioVocals = new Audio();
   const audioInstr  = new Audio();
+
   audioVocals.preservesPitch = audioInstr.preservesPitch = true;      
   audioVocals.webkitPreservesPitch = audioInstr.webkitPreservesPitch = true;
   audioVocals.crossOrigin = audioInstr.crossOrigin = "anonymous";

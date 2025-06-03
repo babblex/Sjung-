@@ -81,32 +81,52 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
   let currentSong = songs[0];                           
 
   function nextSong() {
-    current = (current + 1) % songs.length;    
+    current = (current + 1) % songs.length;
+    loadSelectedSong();
+  }
+  
+  function prevSong() {
+    current = (current - 1 + songs.length) % songs.length;
+    loadSelectedSong();
+  }
+  
+  // Ny gemensam funktion:
+  function loadSelectedSong() {
     audioAPI.loadSong(songs[current]);
     currentSong = songs[current];
 
-    /* ── tempo UI när vi byter låt ─────────────────────────────── */
-    defaultBpm             = currentSong.defaultBpm;   // ny referens-BPM
-    tempoSlider.min        = 100;                       // samma spann
-    tempoSlider.max        = 175;
-    tempoSlider.value      = defaultBpm;
-    tempoDisplay.textContent = `${defaultBpm} BPM`;
-    audioAPI.setPlaybackRate(1);                       // återställ hastighet
-
+    defaultBpm = currentSong.defaultBpm;
+  
+    const minBpm = Math.round(defaultBpm * 0.9);   // –10%
+    const maxBpm = Math.round(defaultBpm * 1.1);   // +10%
     
+    tempoSlider.min  = minBpm;
+    tempoSlider.max  = maxBpm;
+    tempoSlider.value = defaultBpm;
+    tempoDisplay.textContent = `${tempoSlider.value} BPM`;
+    
+    audioAPI.setPlaybackRate(1);
+  
     progressBar.value        = 0;
     curTimeLabel.textContent = "00:00";
     totTimeLabel.textContent = "--:--";
-
-
-    audioAPI.play();                           
-    playBtn .style.display = "none";           
-    pauseBtn.style.display = "inline";
+  
+    
+    playBtn.style.display  = "inline";
+    pauseBtn.style.display = "none";
   }
 
   document
     .querySelector('img[alt="shuffle"]')       
     .addEventListener("click", nextSong);
+
+  document
+    .querySelector('img[alt="fast-forward"]')
+    .addEventListener("click", nextSong);
+  
+  document
+    .querySelector('img[alt="rewind"]')
+    .addEventListener("click", prevSong);
 
   const toggleBtn = document.querySelector('#toggle-btn'); 
   const lyricsBox = document.getElementById('song-lyrics'); 

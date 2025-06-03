@@ -13,7 +13,7 @@ det kom en trekantig gubbe i …
 `,
 
     
-    audioVocals: "/static/audio/Det var så roligt Ljudfiler/Det var så roligt Sopran.mp3",
+    audioVocals: "/static/audio/Det var så roligt Ljudfiler/Det var så roligt Vocals.mp3",
     audioInstr : "/static/audio/Det var så roligt Ljudfiler/Det var så roligt No vocals.mp3",
 
     tips: {
@@ -48,12 +48,39 @@ det kom en trekantig gubbe i …
              Isabelle Koenen<br>Carl-Johan Hedbrand</p>
         </div>
       </div>`
-  }
+  },
+  {
+    id:          "toxic",
+    title:       "Toxic",
+    defaultBpm: 143,
+    writers:     ["C.Dennis", "C.Karlsson", "H.Jonback", "P.Winnberg", "S.Lunt"],
 
-  /* ---- lägg en komma + nytt objekt när du lägger till nästa låt:
-  ,{
-    id: "nästa_låt",
-    ...
-  }
-  */
+    lyrics: `
+  Baby, can't you see I'm calling?
+  A guy like you should wear a warning
+  It's dangerous, I'm falling
+`,
+
+    
+    audioVocals: "/static/audio/Toxic Ljudfiler/Toxic Vocals.mp3",
+    audioInstr : "/static/audio/Toxic Ljudfiler/Toxic Instrumental.mp3",
+
+    tips: {
+      focusText: [
+        "Berätta den fritt som en saga. Man kan ha bilder till som stöd, eller låta barnen rita egna bilder.",
+        "Call-and-response: Prata texten i korta delar, låt barnen härma …",
+        "Call-and-response."
+      ],
+      musikForm: [
+        "<strong>Intro:</strong> Hälsa på den som står bredvid",
+        "<strong>Vers:</strong> Stå på din plats i ringen, sjung och gör TAKK."
+      ]
+    },
+
+    infoHtml: /* html */ `
+      <h6>Toxic</h6>
+      `
+  },
+
+
 ];
