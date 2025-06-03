@@ -148,5 +148,38 @@ det kom en trekantig gubbe i …
       `
   },
 
+  {
+    id:          "dtmf",
+    title:       "DtMF",
+    defaultBpm: 136,
+    writers:     ["B.Bunny", "MAG", "J.LEWiS", "S.Dittrich", "T.Spry"],
+
+    lyrics: `
+    Otro sunset bonito que veo en San Juan
+    Disfrutando de todas esas cosas 
+    que extrañan los que se van
+`,
+
+    
+    audioVocals: "/static/audio/DtMF Ljudfiler/DtMF Vocals.mp3",
+    audioInstr : "/static/audio/DtMF Ljudfiler/DtMF Instrumental.mp3",
+
+    tips: {
+      focusText: [
+        "Berätta den fritt som en saga. Man kan ha bilder till som stöd, eller låta barnen rita egna bilder.",
+        "Call-and-response: Prata texten i korta delar, låt barnen härma …",
+        "Call-and-response."
+      ],
+      musikForm: [
+        "<strong>Intro:</strong> Hälsa på den som står bredvid",
+        "<strong>Vers:</strong> Stå på din plats i ringen, sjung och gör TAKK."
+      ]
+    },
+
+    infoHtml: /* html */ `
+      <h6>DtMF</h6>
+      `
+  },
+
 
 ];
