@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const tempoSlider  = document.getElementById("tempo-slider");
   const tempoDisplay = document.getElementById("tempo-display");
 
-/* Standard-BPM för aktuell låt – skrivs över i loadSong/nextSong */
-let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
+/* Standard-BPM for current song – overwrites in loadSong/nextSong */
+let defaultBpm = +tempoSlider.value;    // 136
 
   function fmt(sec) {
     const m = String(Math.floor(sec / 60)).padStart(2, "0");
@@ -38,23 +38,23 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
     pauseBtn.style.display = "none";
   });
 
-    /* ── koppla currentTime → slider & etiketter ─────────────── */
+    /* ── Connect currentTime → slider & lables ─────────────── */
   audioAPI.onTimeUpdate((now, total) => {
-    if (total) {                         // duration blir känd efter metadata
+    if (total) {               
       progressBar.max           = total;
       totTimeLabel.textContent  = fmt(total);
     }
-    progressBar.value           = now;   // flytta pricken
+    progressBar.value           = now;   // Move circle position
     curTimeLabel.textContent    = fmt(now);
   });
 
-  /* ── Tempo-slider → ändra playbackRate ───────────────────── */
+  /* ── Tempo-slider → change playbackRate ───────────────────── */
   tempoSlider.addEventListener("input", () => {
-    const bpm    = +tempoSlider.value;      // läs slider-värde (t.ex. 150)
+    const bpm    = +tempoSlider.value;      // Read slider-value (t.ex. 150)
     const factor = bpm / defaultBpm;        // 150 / 136 ≈ 1,10
 
-    audioAPI.setPlaybackRate(factor);       // skalar båda ljudspår
-    tempoDisplay.textContent = `${bpm} BPM`; // uppdatera etiketten i UI:t
+    audioAPI.setPlaybackRate(factor);     
+    tempoDisplay.textContent = `${bpm} BPM`; // Update label in the UI
   });
 
   
@@ -72,9 +72,9 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
   const resetTempoBtn = document.querySelector('[data-reset="tempo"]');
 
   resetTempoBtn.addEventListener("click", () => {
-    tempoSlider.value       = defaultBpm;          // 136 eller låtens egen BPM
+    tempoSlider.value       = defaultBpm;          // 136 or the songs own BPM
     tempoDisplay.textContent = `${defaultBpm} BPM`;
-    audioAPI.setPlaybackRate(1);                   // ← NY rad: tillbaka till originaltempo
+    audioAPI.setPlaybackRate(1);                   // Back to original tempo
   });
 
   let current = 0; 
@@ -90,7 +90,6 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
     loadSelectedSong();
   }
   
-  // Ny gemensam funktion:
   function loadSelectedSong() {
     audioAPI.loadSong(songs[current]);
     currentSong = songs[current];
@@ -163,13 +162,13 @@ let defaultBpm = +tempoSlider.value;    // 136 vid sidladdning
         currentSong.infoHtml;
     }
   }
-/* ----- Modalknappar (tips, info) ------------------------------ */
+/* ----- Modalbuttons (tips, info) ------------------------------ */
 document.querySelectorAll('[data-action]').forEach(btn => {
   const action = btn.dataset.action;          // "tips", "info", "lang" ...
 
   if (action === 'tips' || action === 'info') {
     btn.addEventListener('click', () => {
-      fillModal(action);                      // <-- NYTT
+      fillModal(action);       
       bootstrap.Modal
         .getOrCreateInstance(
           document.getElementById(`${action}Modal`)
