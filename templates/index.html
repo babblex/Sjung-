@@ -36,6 +36,16 @@
             <button class="chip" data-action="lang">
               <img src="{{ url_for('static', filename='images/flag_se.png') }}" class="chip-icon" alt="change_language">
               <span class="chip-label">Ändra språk</span>
+              <form class="drop-down-menu" id="language-menu" action="/action_page.php">
+              <select id="drop-down-menu-lang-options" name="languages">
+                <option value="swe">Svenska</option>
+                <option value="den">Danska</option>
+                <option value="fin">Finska</option>
+                <option value="ice">Isländska</option>
+                <option value="jid">Jiddisch</option>
+                <option value="nor">Norska</option>
+              </select>
+            </form>
             </button>
           </li>
         </ul>
@@ -131,8 +141,6 @@
       </div>
     </div>
   </div>
-
-  
 
     <!--Main div-->
     <div class = "container-fluid main-div">

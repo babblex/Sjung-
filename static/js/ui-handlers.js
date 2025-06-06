@@ -176,5 +176,29 @@ document.querySelectorAll('[data-action]').forEach(btn => {
         .show();
     });
   }
-});         
+});
+
+const langBtn = document.querySelector('[data-action="lang"]');
+const langMenu = document.getElementById("language-menu");
+
+langBtn.addEventListener("click", (e) => {
+  // Toggle meny
+  const isVisible = langMenu.style.display === "block";
+  langMenu.style.display = isVisible ? "none" : "block";
+
+  if (!isVisible) {
+    const rect = langBtn.getBoundingClientRect();
+
+    // Positionera meny under knappen
+    langMenu.style.position = "absolute";
+    langMenu.style.top = `${rect.bottom + window.scrollY}px`;
+    langMenu.style.left = `${rect.left + window.scrollX}px`;
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) {
+    langMenu.style.display = "none";
+  }
+});
 });  

@@ -371,3 +371,21 @@ html, body {
   object-fit: contain; 
 }
 
+
+.drop-down-menu {
+  position: relative;
+  top: 100%;   
+  left: 50px !important;
+
+
+         
+
+  background-color: rgba(46, 75, 59, 1);
+  color: white;
+  border: none; 
+
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: left;         
+  cursor: pointer;
+}
