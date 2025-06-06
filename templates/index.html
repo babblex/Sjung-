@@ -61,7 +61,7 @@
           </div>
         </div>
       </section>
-            <!-- Volume controll‑panel -->
+            <!-- Volume control‑panel -->
       <section class="panel panel--volume">
         <header class="panel-header">
           <img src="{{ url_for('static', filename='images/volume_icon.png') }}" class="panel-icon" alt="volume">
@@ -94,7 +94,7 @@
       </section>
 
     </aside>
-  <!-- Modal för Tips -->
+  <!-- Modal for Tips -->
   <div class="modal fade" id="tipsModal"
       tabindex="-1" aria-labelledby="tipsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -106,14 +106,14 @@
                   aria-label="Stäng"></button>
         </div>
 
-      <!-- ‼  JS fyller #tipsModalBody beroende på aktuell låt -->
+      <!-- ‼  JS fills #tipsModalBody depending on current song -->
         <div class="modal-body" id="tipsModalBody"></div>
 
       </div>
     </div>
   </div>
 
-  <!-- Modal för Låtinfo -->
+  <!-- Modal for Songinfo -->
   <div class="modal fade" id="infoModal"
       tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -125,7 +125,7 @@
                   aria-label="Stäng"></button>
         </div>
 
-        <!-- ‼  JS fyller #infoModalBody beroende på aktuell låt -->
+        <!-- ‼  JS fills #infoModalBody depending on current song -->
         <div class="modal-body" id="infoModalBody"></div>
 
       </div>
@@ -141,7 +141,6 @@
               <button id="menu-toggle" class="menu-button">
                 <img src="{{ url_for('static', filename='images/side_meny_btn.png') }}" alt="side-meny-button" class="symbols-header">
               </button>
-              <!--<img src="{{ url_for('static', filename='images/return_arrow.png') }}" alt="go-back-arrow" class="symbols-header">-->
             </div>
             <div class="col-6 ps-5 song-info">
               <p id="song-title"   class="mb-0 fw-bold fs-3"></p>
@@ -159,7 +158,7 @@
         </main>
         <footer class = "row">
           
-          <!-- Progress-bar med tid -->
+          <!-- Progress-bar with time -->
           <div class="col-12">
             <div class="progress d-flex align-items-center">
               <span id="cur-time" class="time-label me-2">00:00</span>
@@ -173,12 +172,12 @@
             </div>
           </div>
         
-          <!-- Spel-/navigeringsknapparna -->
+          <!-- Play-/navigationbuttons -->
           <div class="col-12 text-center controls">
             <img src="{{ url_for('static', filename='images/shuffle_btn.png') }}"      alt="shuffle"      class="symbols-header">
             <img src="{{ url_for('static', filename='images/rewind_btn.png') }}"       alt="rewind"      class="symbols-header">
         
-            <!-- play / pause växlar vi i JS -->
+            <!-- play / pause pictures being controlled via JS -->
             <img src="{{ url_for('static', filename='images/play_btn.png') }}"         alt="play"  id="play-button"  class="symbols-header show-text"
                  data-play="{{ url_for('static', filename='images/play_btn.png') }}"
                  data-pause="{{ url_for('static', filename='images/pause_btn.png') }}">
