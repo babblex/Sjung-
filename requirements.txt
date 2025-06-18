@@ -1,3 +1,0 @@
-#Requirement for avalibility to test application on IPad
-Flask
-gunicorn
